@@ -1,2 +1,20 @@
-<h1>Rooms#new</h1>
-<p>Find me in app/views/rooms/new.html.erb</p>
+<% provide :page_title, "ルーム作成" %>
+
+<h1>ルーム作成</h1>
+
+<%# ここにエラー表示のパーシャルを入れたい %>
+
+<div class="my-4">
+  <h2>ルームのURLを決めてください</h2>
+  <%= ENV['BASE_URL'] %>/<br>
+  <input class="ml-4">&nbsp;/
+</div>
+
+<div class="my-4">
+  <h2>ルームの名前を決めてください</h2>
+  <input class="ml-4">
+</div>
+
+<div class="my-4 text-center">
+  <input type="button" value="ルーム作成">
+</div>

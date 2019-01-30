@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
-  get 'rooms/new'
+
+  # StaticPages
   root 'static_pages#top'
+
+  # Rooms
+  get '/new', to: 'rooms#new', as: 'new_room'
+
 end
