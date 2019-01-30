@@ -1,20 +1,26 @@
 <% provide :page_title, "ルーム作成" %>
 
-<h1>ルーム作成</h1>
+<h1 class="my-2">ルーム作成</h1>
 
-<%# ここにエラー表示のパーシャルを入れたい %>
+<%= form_for(@room, url: create_room_path) do |f| %>
+
+  <%# ここにエラー表示のパーシャルを入れたい %>
+  <%# <%= render 'shared/error_messages', object: f.object %>
 
 <div class="my-4">
-  <h2>ルームのURLを決めてください</h2>
+  <%= f.label :code, "ルームのURLを決めてください" %><br>
+  <p>※アルファベット、数字、ハイフン、アンダースコアが使えます</p>
   <%= ENV['BASE_URL'] %>/<br>
-  <input class="ml-4">&nbsp;/
+  <%= f.text_field :code, class: 'form-control ml-4 w-75' %>
 </div>
 
 <div class="my-4">
-  <h2>ルームの名前を決めてください</h2>
-  <input class="ml-4">
+  <%= f.label :name, "ルームの名前を決めてください" %>
+  <%= f.text_field :name, class: 'form-control ml-4 w-75' %>
 </div>
 
-<div class="my-4 text-center">
-  <input type="button" value="ルーム作成">
-</div>
+  <div class="my-4 text-center">
+    <%= f.submit "ルーム作成", class: "btn btn-primary" %>
+  </div>
+
+<% end %>
