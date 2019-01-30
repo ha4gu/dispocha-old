@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  owner_id: 1
+  name: MyString
+  last_post_at: 2019-01-30 10:25:44
+
+two:
+  code: MyString
+  owner_id: 1
+  name: MyString
+  last_post_at: 2019-01-30 10:25:44
