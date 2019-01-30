@@ -7,5 +7,7 @@ class Room < ApplicationRecord
     uniqueness: true,
     length: { in: 8..255 },
     format: { with: VALID_CODE_REGEX}
-
+  validates :name,
+    presence: true,
+    length: { maximum: 255 }
 end
