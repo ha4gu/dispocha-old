@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_30_012544) do
+ActiveRecord::Schema.define(version: 2019_01_31_053502) do
 
   create_table "rooms", force: :cascade do |t|
     t.string "code"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["code"], name: "index_rooms_on_code", unique: true
   end
 
 end
