@@ -2,6 +2,13 @@ class RoomsController < ApplicationController
 
   def new
     @room = Room.new
+    # 初期値の設定
+    if @room.code.nil? # 保存失敗時に上書きしないように
+      @room.code = Room.random_code
+      until @room.has_valid_code?
+        @room.code = Room.random_code
+      end
+    end
   end
 
   def create
@@ -22,5 +29,7 @@ class RoomsController < ApplicationController
   def user_params
     params.require(:room).permit(:code, :name)
   end
+
+
 
 end

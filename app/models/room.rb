@@ -10,4 +10,24 @@ class Room < ApplicationRecord
   validates :name,
     presence: true,
     length: { maximum: 255 }
+
+  # クラスメソッド
+
+  # a-zA-Z0-9_-から成る8文字の文字列を返す
+  def self.random_code
+    SecureRandom.urlsafe_base64(nil, false)[0..7]
+  end
+
+
+  # インスタンスメソッド
+
+  # codeのみについて有効かどうかをbooleanで返す
+  def has_valid_code?
+    self.errors.clear
+    self.valid?
+    result = self.errors.messages[:code].count.zero?
+    self.errors.clear
+    return result
+  end
+
 end
