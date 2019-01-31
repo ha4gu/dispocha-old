@@ -4,20 +4,19 @@
 
 <%= form_for(@room, url: create_room_path) do |f| %>
 
-  <%# ここにエラー表示のパーシャルを入れたい %>
-  <%# <%= render 'shared/error_messages', object: f.object %>
+  <%= render 'shared/error_messages', object: f.object %>
 
-<div class="my-4">
-  <%= f.label :code, "ルームのURLを決めてください" %><br>
-  <p>※アルファベット、数字、ハイフン、アンダースコアが使えます</p>
-  <%= ENV['BASE_URL'] %>/<br>
-  <%= f.text_field :code, class: 'form-control ml-4 w-75' %>
-</div>
+  <div class="my-4">
+    <%= f.label :code, "ルームのURLを決めてください" %><br>
+    <p>※アルファベット、数字、ハイフン、アンダースコアが使えます</p>
+    <%= ENV['BASE_URL'] %>/<br>
+    <%= f.text_field :code, class: 'form-control ml-4 w-75' %>
+  </div>
 
-<div class="my-4">
-  <%= f.label :name, "ルームの名前を決めてください" %>
-  <%= f.text_field :name, class: 'form-control ml-4 w-75' %>
-</div>
+  <div class="my-4">
+    <%= f.label :name, "ルームの名前を決めてください" %>
+    <%= f.text_field :name, class: 'form-control ml-4 w-75' %>
+  </div>
 
   <div class="my-4 text-center">
     <%= f.submit "ルーム作成", class: "btn btn-primary" %>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'static_pages#top'
 
   # Rooms
-  get '/new',    to: 'rooms#new',    as: 'new_room'
-  get '/create', to: 'rooms#create', as: 'create_room'
+  get  '/new',    to: 'rooms#new',    as: 'new_room'
+  post '/create', to: 'rooms#create', as: 'create_room'
 
 end
