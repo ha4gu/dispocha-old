@@ -7,14 +7,31 @@
   <%= render 'shared/error_messages', object: f.object %>
 
   <div class="my-4">
-    <%= f.label :code, "ルームのURLを決めてください" %><br>
-    <p>※アルファベット、数字、ハイフン、アンダースコアが使えます</p>
-    <%= ENV['BASE_URL'] %>/<br>
+
+    <%= f.label :code do %>
+      <div>
+        ルームIDを決めてください
+        <ul class="small my-0 pl-4">
+          <li>IDはルームのURLの一部になります</li>
+          <ul class="my-0 pl-4">
+            <li><%= ENV['BASE_URL'] %>/[ルームID]</li>
+          </ul>
+          <li>長さは8〜255文字です</li>
+          <li>アルファベット、数字、ハイフン( - )、アンダースコア( _ )が使えます</li>
+        </ul>
+      </div>
+    <% end %>
     <%= f.text_field :code, class: 'form-control ml-4 w-75' %>
   </div>
 
   <div class="my-4">
-    <%= f.label :name, "ルームの名前を決めてください" %>
+    <%= f.label :name do %>
+      ルームの名前を決めてください
+      <ul class="small my-0 pl-4">
+        <li>ルーム画面で参加者に表示されます</li>
+        <li>長さは1〜255文字です</li>
+      </ul>
+    <% end %>
     <%= f.text_field :name, class: 'form-control ml-4 w-75' %>
   </div>
 

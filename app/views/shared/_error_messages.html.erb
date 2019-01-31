@@ -2,7 +2,7 @@
   <div id="error_explanation">
     <div class="alert alert-danger">
       <%= object.errors.count %>個のエラーがあります
-      <ul>
+      <ul class="small my-0 pl-4">
         <% object.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
