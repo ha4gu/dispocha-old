@@ -16,11 +16,20 @@ class RoomsController < ApplicationController
     if @room.save
       # 保存に成功した場合の処理
       flash[:success] = "ルームが作成されました。"
-      redirect_to root_path
+      redirect_to room_path(@room.code)
     else
       # 保存に失敗した場合の処理
       flash.now[:danger] = "ルームの作成に失敗しました。"
       render 'new'
+    end
+  end
+
+  def show
+    @room = Room.find_by(code: params[:room_id])
+    # ルームが見つからない場合
+    if @room.nil?
+      flash[:warning] = "ルーム #{params[:room_id]} が見つかりません。"
+      redirect_to root_path
     end
   end
 
