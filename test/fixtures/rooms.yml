@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  code: MyString1
-  name: MyString1
+  code: MyTestRoom1
+  name: My Test Room 1
 
 two:
-  code: MyString2
-  name: MyString2
+  code: MyTestRoom2
+  name: My Test Room 2
