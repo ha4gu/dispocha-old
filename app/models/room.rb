@@ -1,4 +1,6 @@
 class Room < ApplicationRecord
+  # association
+  has_many :users, dependent: :destroy
 
   # validation
   VALID_CODE_REGEX = /\A[\w-]+\z/ # a-z A-Z 0-9 _ -

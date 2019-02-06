@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_31_053502) do
+ActiveRecord::Schema.define(version: 2019_02_06_020703) do
 
   create_table "rooms", force: :cascade do |t|
     t.string "code"
@@ -18,6 +18,21 @@ ActiveRecord::Schema.define(version: 2019_01_31_053502) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["code"], name: "index_rooms_on_code", unique: true
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.integer "room_id"
+    t.string "name", default: "", null: false
+    t.string "display_name"
+    t.string "provider"
+    t.string "uid"
+    t.string "encrypted_password", default: "", null: false
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id", "name"], name: "index_users_on_room_id_and_name", unique: true
+    t.index ["room_id"], name: "index_users_on_room_id"
+    t.index [nil], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
