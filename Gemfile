@@ -12,6 +12,7 @@ gem 'uglifier',     '4.1.20'
 gem 'jquery-rails', '4.3.3'
 gem 'jbuilder',     '2.8.0'
 gem 'bootstrap',    '4.2.1'
+gem 'devise',       '4.5.0'
 
 group :development, :test do
   gem 'sqlite3',      '1.3.13'
