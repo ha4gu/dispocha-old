@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-  devise_for :users
   # StaticPages
   root 'static_pages#top'
 
@@ -9,4 +7,8 @@ Rails.application.routes.draw do
   post '/create',   to: 'rooms#create', as: 'create_room'
   get  '/:room_id', to: 'rooms#show',   as: 'room'
 
+  # devise
+  devise_for :users, path: ':room_id', path_names: {
+    sign_in: 'login', sign_out: 'logout', sign_up: 'new'
+  }
 end

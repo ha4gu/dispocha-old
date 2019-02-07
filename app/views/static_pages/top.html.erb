@@ -3,3 +3,10 @@
 <div class="text-center m-4">
   <%= link_to "ルーム作成", new_room_path, class: "btn btn-outline-primary" %>
 </div>
+<div class="text-left m-4">
+  <ul>
+    <% @rooms.each do |room| %>
+      <li><%= link_to "#{room.id}: #{room.code}", room_path(room.code) %></li>
+    <% end %>
+  </ul>
+</div>

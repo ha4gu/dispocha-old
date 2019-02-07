@@ -9,4 +9,13 @@ module ApplicationHelper
     end
   end
 
+  def current_room_id
+    if params[:room_id]
+      current_room = Room.find_by(code: params[:room_id])
+      current_room.id
+    else
+      return nil
+    end
+  end
+
 end

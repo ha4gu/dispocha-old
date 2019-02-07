@@ -15,8 +15,14 @@
         <div class="navbar-nav text-right text-sm-left">
           <%# 以下のメニュー項目は仮のもの。 %>
           <%= link_to "トップ", root_path, class: "nav-item nav-link" %>
-          <%= link_to "ログイン", '#', class: "nav-item nav-link" %>
-          <%= link_to "ログアウト", '#', class: "nav-item nav-link" %>
+          <% if params[:room_id] %>
+            <%= link_to "ログイン",
+              new_user_session_path(params[:room_id]),
+              class: "nav-item nav-link" %>
+            <%= link_to "ログアウト",
+              destroy_user_session_path(params[:room_id]), method: :delete,
+              class: "nav-item nav-link" %>
+          <% end %>
         </div>
       </div> <!-- div#topHambergerMenu -->
 

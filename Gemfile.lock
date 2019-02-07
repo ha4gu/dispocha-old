@@ -64,6 +64,8 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.7.1)
+      devise (>= 4.5)
     dotenv (2.6.0)
     dotenv-rails (2.6.0)
       dotenv (= 2.6.0)
@@ -213,6 +215,7 @@ DEPENDENCIES
   bootstrap (= 4.2.1)
   byebug (= 10.0.2)
   devise (= 4.5.0)
+  devise-i18n (= 1.7.1)
   dotenv-rails (= 2.6.0)
   faker (= 1.9.1)
   jbuilder (= 2.8.0)

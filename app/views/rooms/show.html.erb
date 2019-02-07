@@ -1,4 +1,22 @@
-<h1>rooms#show</h1>
-id: <%= @room.id %><br>
-code: <%= @room.code %><br>
-name: <%= @room.name %><br>
+<div class="my-3">
+  <h1>rooms#show</h1>
+  id: <%= @room.id %><br>
+  code: <%= @room.code %><br>
+  name: <%= @room.name %><br>
+</div>
+
+<div class="my-3">
+  <%= link_to "新規登録", new_user_registration_path(params[:room_id]),
+    class: "btn btn-outline-primary" %>
+  <%= link_to "ログイン", new_user_session_path(params[:room_id]),
+    class: "btn btn-outline-primary" %>
+</div>
+
+<div class="my-3">
+  <h2>User List</h2>
+  <ul>
+  <% @room.users.each do |user| %>
+    <li><%= user.id %>: <%= user.name %></li>
+  <% end %>
+  </ul>
+</div>
