@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   # association
   belongs_to :room
+  has_many :posts
 
   # validation
   validates :room_id, presence: true
