@@ -1,0 +1,37 @@
+<%= content_tag :div, class: "bg-info" do %>
+  <h2>Debug Info:</h2>
+  <div class="m-3">
+    <h2>Params</h2>
+    <%= debug(params) %>
+  </div>
+
+  <div class="m-3">
+    <h2>Room</h2>
+    <ul>
+      <li>id: <%= @room.id %></li>
+      <li>code: <%= @room.code %></li>
+      <li>name: <%= @room.name %></li>
+    </ul>
+  </div>
+
+  <div class="m-3">
+    <h2>Current Session</h2>
+    <ul>
+      <li>Signed in: <%= user_signed_in? %></li>
+      <% if user_signed_in? %>
+        <li>User ID: <%= current_user.id %></li>
+        <li>User Name: <%= current_user.name %></li>
+        <li>Session: <%= user_session %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="m-3">
+    <h2>User List</h2>
+    <ul>
+    <% @room.users.each do |user| %>
+      <li><%= user.id %>: <%= user.name %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
