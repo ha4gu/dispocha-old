@@ -18,7 +18,10 @@
     </div>
   <% end %>
 
-  <%= render 'posts' %>
+  <%# 既存ポスト表示欄 %>
+  <div id="posts_list">
+    <%= render 'posts/show', room: @room %>
+  </div>
 <% end %>
 
 <%# show only in development environment %>
