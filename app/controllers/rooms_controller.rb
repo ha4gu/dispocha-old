@@ -31,6 +31,7 @@ class RoomsController < ApplicationController
       flash[:warning] = "ルーム #{params[:room_id]} が見つかりません。"
       redirect_to root_path
     end
+    @post = Post.new
   end
 
   private
