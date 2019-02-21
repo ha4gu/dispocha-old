@@ -5,7 +5,10 @@ class PostsController < ApplicationController
     if @post.save
       # 保存に成功した場合の処理
       #flash[:success] = "ポスト成功" # うるさいので抑制
-      redirect_to room_path(@room.code)
+      respond_to do |format|
+        format.html { redirect_to room_path(@room.code) }
+        format.js
+      end
     else
       # 保存に失敗した場合の処理
       flash.now[:danger] = "ポスト失敗"
