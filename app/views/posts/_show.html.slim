@@ -1,0 +1,13 @@
+- # 既存ポスト表示欄
+.my-3
+  h2
+    | Post List
+  ul
+    - room.posts.each do |post|
+      li
+        = User.find(post.user_id).name
+        | : 
+        = post.content
+        |  (
+        = post.created_at
+        | )
