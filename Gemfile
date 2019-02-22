@@ -7,7 +7,7 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 gem 'rails',        '5.2.2'
 gem 'bootsnap',     '1.3.2'
 gem 'puma',         '3.12.0'
-# gem 'sass-rails',   '5.0.7'
+gem 'mini_magick',  '4.9.2'
 gem 'sassc-rails',  '2.1.0'
 gem 'slim-rails',   '3.2.0'
 gem 'html2slim',    '0.2.0'

@@ -7,6 +7,10 @@ h2
     = f.label :name
     br
     = f.text_field :name, autofocus: true, autocomplete: "username"
+  .field.mb-4
+    = f.label :image
+    br
+    = f.file_field :image
   .field
     = f.label :password
     - if @minimum_password_length
