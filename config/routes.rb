@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get  '/new',      to: 'rooms#new',    as: 'new_room'
   post '/create',   to: 'rooms#create', as: 'create_room'
   get  '/:room_id', to: 'rooms#show',   as: 'room'
+  #post '/:room_id/room_update', to: 'rooms#room_update', as: 'user_update'
+  post '/:room_id/user_update', to: 'rooms#user_update', as: 'user_update'
 
   # devise
   devise_for :users, path: ':room_id', path_names: {

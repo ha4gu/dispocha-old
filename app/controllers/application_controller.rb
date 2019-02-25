@@ -1,10 +1,11 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  # devise, ユーザ項目にアイコンである:imageを含められるようにする
+  # devise, ユーザ項目にアイコンである:iconを含められるようにする
   # ※ usernameはすでにログインに必須の要素と扱っているため、追加は不要。
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:image])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:icon])
+    devise_parameter_sanitizer.permit(:edit, keys: [:icon])
   end
 
   # サインアップ後にルームトップを表示

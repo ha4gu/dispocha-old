@@ -32,10 +32,11 @@
         li
           | User Name:
           = current_user.name
-        - if current_user.image
-          li
-            | User Image:
-            = image_tag current_user.image, size: "64", style: 'border-radius: 100%'
+        li
+          | User Image:
+          - icon_image = \
+              current_user.icon.attached? ? current_user.icon : "/nobody.png"
+          = image_tag icon_image, size: "64", style: 'border-radius: 100%'
         li
           | Session:
           = user_session

@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :check_signed_in, only: [:show]
 
   def new
     @room = Room.new
@@ -25,13 +26,20 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @room = Room.find_by(code: params[:room_id])
     # ルームが見つからない場合
     if @room.nil?
       flash[:warning] = "ルーム #{params[:room_id]} が見つかりません。"
       redirect_to root_path
     end
     @post = Post.new
+  end
+
+  def check_signed_in
+    @room = Room.find_by(code: params[:room_id])
+    unless user_signed_in?
+      flash[:danger] = "ログインしてください。"
+      redirect_to new_user_session_path(@room.code)
+    end
   end
 
   private
