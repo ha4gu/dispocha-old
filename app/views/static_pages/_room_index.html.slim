@@ -1,0 +1,10 @@
+= content_tag :div, class: "bg-info" do
+  h2
+    | Debug Info:
+  .m-3
+    h2
+      | Room Index:
+    ul
+      - @rooms.each do |room|
+        li
+          = link_to "#{room.id}: #{room.code}", room_path(room.code)
