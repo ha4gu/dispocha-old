@@ -18,9 +18,9 @@ class ApplicationController < ActionController::Base
     room_path(params[:room_id])
   end
 
-  # ログアウト後にルームトップを表示
+  # ログアウト後にサイトトップを表示
   def after_sign_out_path_for(resource)
-    room_path(params[:room_id])
+    root_path
   end
 
 end
