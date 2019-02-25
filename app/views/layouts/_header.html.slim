@@ -6,10 +6,14 @@ header
         span.navbar-toggler-icon
       #topHambergerMenu.collapse.navbar-collapse.justify-content-end
         .navbar-nav.text-right.text-sm-left
-          - # 以下のメニュー項目は仮のもの。
-          = link_to "トップ", root_path, class: "nav-item nav-link"
-          - if params[:room_id]
-            = link_to "ログイン", new_user_session_path(params[:room_id]),
-              class: "nav-item nav-link"
-            = link_to "ログアウト", destroy_user_session_path(params[:room_id]),
+          / 以下のメニュー項目は仮のもの。
+          - if user_signed_in? # すでにログイン済みの状態
+            = link_to "ログイン済みのルームへ移動",
+              room_path(current_user.room.code), class: "nav-item nav-link"
+            = link_to "ログアウト",
+              destroy_user_session_path(current_user.room.code),
               method: :delete, class: "nav-item nav-link"
+          - elsif params[:room_id] # ルームトップなどに居るが未ログインの状態
+            = link_to "ログイン",
+              new_user_session_path(params[:room_id]),
+              class: "nav-item nav-link"
