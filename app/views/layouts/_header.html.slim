@@ -10,6 +10,8 @@ header
           - if user_signed_in? # すでにログイン済みの状態
             = link_to "ログイン済みのルームへ移動",
               room_path(current_user.room.code), class: "nav-item nav-link"
+            = link_to "ユーザ情報の変更",
+              user_edit_path(current_user.room.code), class: "nav-item nav-link"
             = link_to "ログアウト",
               destroy_user_session_path(current_user.room.code),
               method: :delete, class: "nav-item nav-link"

@@ -1,0 +1,26 @@
+- provide :page_title, "ユーザ編集"
+h1.my-2
+  | ユーザ編集
+= form_for(@user, url: user_update_path(params[:room_id])) do |f|
+  = render 'shared/error_messages', object: f.object
+  .field.my-4
+    = f.label :name
+    br
+    = f.text_field :name, autofocus: true, autocomplete: "username"
+  .field.my-4
+    = f.label :display_name
+    br
+    = f.text_field :display_name
+  .field.my-4
+    = f.label :icon
+    div
+      p
+        | 現在のアイコン
+      p
+        - icon_image = \
+            current_user.icon.attached? ? current_user.icon : "/nobody.png"
+        = image_tag icon_image, size: "64", style: 'border-radius: 100%'
+    div
+      = f.file_field :icon
+  .actions
+    = f.submit "更新", class: "btn btn-primary"
