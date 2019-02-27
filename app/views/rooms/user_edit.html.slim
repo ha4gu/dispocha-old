@@ -1,7 +1,7 @@
 - provide :page_title, "ユーザ編集"
 h1.my-2
   | ユーザ編集
-= form_for(@user, url: user_update_path(params[:room_id])) do |f|
+= form_with(model: @user, url: user_update_path(params[:room_id]), local: true) do |f|
   = render 'shared/error_messages', object: f.object
   .field.my-4
     = f.label :name

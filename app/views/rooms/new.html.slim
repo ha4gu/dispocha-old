@@ -1,7 +1,7 @@
 - provide :page_title, "ルーム作成"
 h1.my-2
   | ルーム作成
-= form_for(@room, url: create_room_path) do |f|
+= form_with(model: @room, url: create_room_path, local: true) do |f|
   = render 'shared/error_messages', object: f.object
   .my-4
     = f.label :code do
