@@ -7,6 +7,20 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    models:
+      room: ルーム
+      user: ユーザー
+      post: 投稿
+    attributes:
+      room:
+        code: ルームID
+        name: ルーム名
+      user:
+        name: アカウント名
+        display_name: 表示名（オプション）
+        icon: アイコン
+      post:
+        content: 投稿内容
   date:
     abbr_day_names:
     - 日
